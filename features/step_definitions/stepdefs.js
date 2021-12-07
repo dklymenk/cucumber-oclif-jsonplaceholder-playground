@@ -5,11 +5,14 @@ const {stdout} = require('stdout-stderr')
 const cmd = require('../..')
 const axios = require('axios').default
 const inquirer = require('inquirer')
+const MockAdapter = require('axios-mock-adapter')
+
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 
 Before(function () {
   this.sandbox = sinon.createSandbox()
   this.sandbox.stub(inquirer, 'prompt')
-  this.sandbox.spy(axios)
+  this.axiosMock = new MockAdapter(axios)
 })
 
 After(function () {
@@ -17,7 +20,7 @@ After(function () {
 })
 
 Given('a {string} request to {string} returns status {string} and body', function (method, url, status, body) {
-  this.sandbox.stub(axios, method.toLowerCase()).withArgs(url).resolves({status, data: JSON.parse(body)})
+  this.axiosMock[`on${capitalize(method)}`](url).reply(status, JSON.parse(body))
 })
 
 Given('I would reply with {string} to a {string} prompt', function (input, name) {
@@ -35,5 +38,6 @@ Then('I should see', function (docString) {
 })
 
 Then('the {string} request to {string} should be sent with', function (method, url, body) {
-  assert.deepEqual(axios[method.toLowerCase()].firstCall.args, [url, JSON.parse(body)])
+  assert.equal(this.axiosMock.history[method.toLowerCase()][0].url, url)
+  assert.deepEqual(JSON.parse(this.axiosMock.history[method.toLowerCase()][0].data), JSON.parse(body))
 })
