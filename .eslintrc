@@ -1,0 +1,9 @@
+{
+  "extends": "oclif",
+  "root": true,
+  "rules": {
+    "node/no-missing-import": 1,
+    "unicorn/prefer-module": 0,
+    "new-cap": "off"
+  }
+}
