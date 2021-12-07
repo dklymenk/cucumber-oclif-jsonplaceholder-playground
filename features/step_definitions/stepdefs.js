@@ -16,10 +16,6 @@ After(function () {
   this.sandbox.restore()
 })
 
-Given('a {string} request to {string} returns', function (method, url, body) {
-  this.sandbox.stub(axios, method.toLowerCase()).withArgs(url).resolves({data: JSON.parse(body)})
-})
-
 Given('a {string} request to {string} returns status {string} and body', function (method, url, status, body) {
   this.sandbox.stub(axios, method.toLowerCase()).withArgs(url).resolves({status, data: JSON.parse(body)})
 })

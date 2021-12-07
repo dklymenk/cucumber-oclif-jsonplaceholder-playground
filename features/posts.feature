@@ -1,7 +1,7 @@
 Feature: Posts
 
   Scenario: I run the command to see current posts and create a new post
-    Given a "GET" request to "https://jsonplaceholder.typicode.com/posts" returns
+    Given a "GET" request to "https://jsonplaceholder.typicode.com/posts" returns status "200" and body
       """
       [
         {
