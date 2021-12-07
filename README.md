@@ -1,32 +1,19 @@
 cucumber-oclif-jsonplaceholder-playground
 =========================================
 
+This is a demo repository where I try to figure out how to use [cucumber-js](https://github.com/cucumber/cucumber-js) to drive development of an interactive CLI tool that sends requests to a remote server.
 
-
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/cucumber-oclif-jsonplaceholder-playground.svg)](https://npmjs.org/package/cucumber-oclif-jsonplaceholder-playground)
-[![Downloads/week](https://img.shields.io/npm/dw/cucumber-oclif-jsonplaceholder-playground.svg)](https://npmjs.org/package/cucumber-oclif-jsonplaceholder-playground)
-[![License](https://img.shields.io/npm/l/cucumber-oclif-jsonplaceholder-playground.svg)](https://github.com/dklymenk/cucumber-oclif-jsonplaceholder-playground/blob/master/package.json)
-
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
-# Usage
-<!-- usage -->
-```sh-session
-$ npm install -g cucumber-oclif-jsonplaceholder-playground
-$ cucumber-oclif-jsonplaceholder-playground COMMAND
-running command...
-$ cucumber-oclif-jsonplaceholder-playground (-v|--version|version)
-cucumber-oclif-jsonplaceholder-playground/0.0.0 linux-x64 node-v14.18.1
-$ cucumber-oclif-jsonplaceholder-playground --help [COMMAND]
-USAGE
-  $ cucumber-oclif-jsonplaceholder-playground COMMAND
-...
+Installation:
+```sh
+npm i
 ```
-<!-- usagestop -->
-# Commands
-<!-- commands -->
 
-<!-- commandsstop -->
+Run tests:
+```sh
+npm test
+```
+
+Run command:
+```sh
+bin/run
+```
