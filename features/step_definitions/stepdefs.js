@@ -38,6 +38,6 @@ Then('I should see', function (docString) {
 })
 
 Then('the {string} request to {string} should be sent with', function (method, url, body) {
-  assert.equal(this.axiosMock.history[method.toLowerCase()][0].url, url)
-  assert.deepEqual(JSON.parse(this.axiosMock.history[method.toLowerCase()][0].data), JSON.parse(body))
+  const request = this.axiosMock.history[method.toLowerCase()].find(request => request.url === url)
+  assert.deepEqual(JSON.parse(request.data), JSON.parse(body))
 })
